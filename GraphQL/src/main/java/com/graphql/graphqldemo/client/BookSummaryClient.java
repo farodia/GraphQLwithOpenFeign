@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "summary", url = "http://localhost:8090")
+@FeignClient(name = "summary", url = "${base.url.http}")
 public interface BookSummaryClient {
     @PostMapping
     void addBook(@RequestBody BookDTO bookRequestDTO);
 
-    @GetMapping
+    @GetMapping("/books")
     @ResponseStatus(HttpStatus.OK)
     List<Book> showAllBooks();
 

@@ -25,6 +25,8 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'de.flapdoodle.embedmongo:de.flapdoodle.embedmongo:1.18'
+    testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.2.4'
 }
 
 dependencyManagement {
