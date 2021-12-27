@@ -23,7 +23,7 @@ public class BookSummaryController {
         bookSummaryService.createBookSummary(bookRequestDTO);
     }
 
-    @GetMapping
+    @GetMapping("/books")
     @ResponseStatus(HttpStatus.OK)
     public List<Book> showAllBooks() {
         return bookSummaryService.findAllBooks();

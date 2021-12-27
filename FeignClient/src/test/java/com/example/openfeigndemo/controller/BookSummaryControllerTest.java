@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -26,10 +27,12 @@ public class BookSummaryControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Value("${base.url}")
+    private String url;
+
     @MockBean
     private BookSummaryService bookSummaryService;
 
-    String url="http://localhost:8090";
 
     @Test
     public void add_book() throws Exception {
@@ -51,6 +54,6 @@ public class BookSummaryControllerTest {
         );
         when(bookSummaryService.findAllBooks())
                 .thenReturn(books);
-        mockMvc.perform(get(url)).andExpect(status().isOk());
+        mockMvc.perform(get(url+"/books")).andExpect(status().isOk());
     }
 }
