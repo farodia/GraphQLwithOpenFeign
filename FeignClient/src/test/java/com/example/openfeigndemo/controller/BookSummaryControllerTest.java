@@ -27,8 +27,9 @@ public class BookSummaryControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Value("${base.url}")
-    private String url;
+//    @Value("${base.url}")
+//    private String url;
+    private String url = "http://localhost:8090";
 
     @MockBean
     private BookSummaryService bookSummaryService;

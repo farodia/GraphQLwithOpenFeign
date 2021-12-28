@@ -39,19 +39,19 @@ class BookSummaryClientTest {
     static void end(){
         wireMockServer.stop();
     }
-    @Test
-    void addBook() throws Exception{
-    }
 
     @Test
     void showAllBooks() {
         stubFor(WireMock.get(urlMatching("/books")).willReturn(aResponse().withStatus(OK.value())));
-        findsDataFetcher.finds(null);
+        findsDataFetcher.finds(null);  // when title filter is null will show all books
         verify(getRequestedFor(urlPathEqualTo("/books")));
     }
 
 
     @Test
     void findBooksByTitle() {
+        stubFor(WireMock.get(urlMatching("/mockTitle")).willReturn(aResponse().withStatus(OK.value())));
+        findsDataFetcher.finds("mockTitle");
+        verify(getRequestedFor(urlPathEqualTo("/mockTitle")));
     }
 }
