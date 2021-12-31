@@ -17,8 +17,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//TODO:
-//why should exclude EmbeddedMongoAutoConfiguration? It also works with this configuration
 @Testcontainers
 @DataMongoTest(excludeAutoConfiguration = EmbeddedMongoAutoConfiguration.class)
 public class BookRepositoryTest {
@@ -27,7 +25,7 @@ public class BookRepositoryTest {
 
     @DynamicPropertySource
     static void setProperties(DynamicPropertyRegistry registry){
-        registry.add("spring.data.mongodb.uri",mongoDBContainer::getReplicaSetUrl);
+        registry.add("spring.data.mongodb.url",mongoDBContainer::getReplicaSetUrl);
         System.out.println("setUrl"+mongoDBContainer.getReplicaSetUrl());
     }
 
