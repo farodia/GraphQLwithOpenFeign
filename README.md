@@ -1,5 +1,5 @@
 # GraphQLwithOpenFeign
-This project is a multiservice program using FeignClient integrating with DGS-GraphQL.
+This project is a program using FeignClient integrating with DGS-GraphQL.
 
 
 
@@ -36,7 +36,7 @@ in `http://localhost:8091/graphiql`
          }
          
 ## Tests
-The following are the types of testing tools I have practiced in simple business logic.  
+The following are the types of test tools I have practiced in simple business logic.  
 
 **wireMock**: `/BookSummaryClientTest.java`
 
