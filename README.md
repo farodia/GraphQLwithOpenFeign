@@ -42,11 +42,16 @@ The following are the types of test tools I have practiced in simple business lo
 
 **mockMVC**: `BookSummaryControllerTest.java`  
 
-**scheme test**: `/SchemeTest.java`  
-
-**testcontainers**: 
-   -  `BookRepositoryTest.java` using a testcontainer individually.
-   -  `BookRepositoryTest.java` and `BookSummaryServiceReuseContainerTest.java` reuse the testcontainer provided by `BasicMongoTestContainer`  
-   
+**scheme test**: `/SchemeTest.java`
+      
 **mockito**[for dgs-grapghQL test]:  `FindsDataFetcherTest.java`
-  
+
+
+**testcontainers**:
+-  `BookRepositoryTest.java` using a testcontainer individually.
+-  `BookSummaryServiceReuseContainerTest.java` reuse the testcontainer provided by `BasicMongoTestContainer`
+
+### !!!notice!!!
+   - If you are using colima to invoke docker, please set two environment parameters additional!
+   You could refer to [Testcontainers With Colima](https://www.rockyourcode.com/testcontainers-with-colima)
+ - `BookRepositoryTest.java` and `BookSummaryServiceReuseContainerTest.java` could not run at the same time!
